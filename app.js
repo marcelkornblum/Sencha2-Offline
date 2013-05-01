@@ -52,6 +52,24 @@ Ext.application({
     },
 
     launch: function() {
+        
+        window.addEventListener('load', function(e) {
+            // not sure if the following block serves any purpose but it looks useful...
+            window.applicationCache.addEventListener('updateready', function(e) {
+                if (window.applicationCache.status == window.applicationCache.UPDATEREADY) {
+                    // Browser downloaded a new app cache.
+                    // Swap it in and reload the page to get the new hotness.
+                    window.applicationCache.swapCache();
+                    console.log('reloading site from new App Cache');
+                    window.location.reload();
+                } else {
+                    // Manifest didn't changed. Nothing new to server.
+                }
+            }, false);
+
+        }, false);
+
+
         // Destroy the #appLoadingIndicator element
         Ext.fly('appLoadingIndicator').destroy();
 
