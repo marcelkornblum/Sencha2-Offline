@@ -28,7 +28,9 @@ Ext.application({
     ],
 
     views: [
-        'Main'
+        'Main',
+        'Hello',
+        'World'
     ],
 
     icon: {
