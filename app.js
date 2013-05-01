@@ -24,13 +24,24 @@ Ext.application({
     name: 'Offline',
 
     requires: [
-        'Ext.MessageBox'
+        'Ext.MessageBox',
+        'Ext.dataview.List',
+        'Ext.data.proxy.JsonP'
+    ],
+
+    models:[
+        'Photo'
+    ],
+
+    stores:[
+        'onlineStore'
     ],
 
     views: [
         'Main',
         'Hello',
-        'World'
+        'World',
+        'Gallery'
     ],
 
     icon: {
@@ -52,7 +63,7 @@ Ext.application({
     },
 
     launch: function() {
-        
+
         window.addEventListener('load', function(e) {
             // not sure if the following block serves any purpose but it looks useful...
             window.applicationCache.addEventListener('updateready', function(e) {

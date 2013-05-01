@@ -25,6 +25,9 @@ Ext.define('Offline.view.Main', {
             },
             {
                 xtype: 'world',
+            },
+            {
+                xtype: 'gallerypanel',
             }
         ]
     }
